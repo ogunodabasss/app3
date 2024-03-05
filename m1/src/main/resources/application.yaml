@@ -1,0 +1,31 @@
+message-brokers:
+  kafka:
+  rabbitmq:
+    queue-names:
+      m1:
+        rpc: "app3.m1.rpc"
+      m2:
+        rpc: "app3.m2.rpc"
+    exchanges-name:
+      direct:
+        m1:
+          CourierAmqpService: "app3.m1.CourierAmqpService.direct"
+        m2:
+          PackageAmqpService: "app3.m1.PackageAmqpService.direct"
+      fanout:
+      topic:
+      headers:
+    routing-keys:
+      m1:
+        CourierAmqpService:
+          courierStartedPackageDelivery: "m1.courierStartedPackageDelivery"
+          courierEndPackageDelivery: "m1.courierEndPackageDelivery"
+      m2:
+        PackageAmqpService:
+          courierStartedPackageDelivery: "m2.courierStartedPackageDelivery"
+          courierEndPackageDelivery: "m2.courierEndPackageDelivery"
+          findSelectLocationById: "m2.findSelectLocationById"
+
+
+
+

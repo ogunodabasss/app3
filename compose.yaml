@@ -1,0 +1,90 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672" #JMS Port
+      - "15672:15672" #Management Port - default user:pass = guest:guest
+    networks:
+      - backend_network
+  postgres_db:
+    container_name: 'postgresql_DB'
+    image: postgres:16.0
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - POSTGRES_DB=$POSTGRESDB_DATABASE
+      - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
+      - POSTGRES_USER=$POSTGRESDB_USER
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+    networks:
+      - backend_network
+    
+  m1:
+    depends_on:
+      - postgres_db
+      - rabbitmq
+    container_name: 'SpringBackendAPP3-M1'
+    image: 'app3_m1_backend:latest'
+    build:
+      dockerfile: Dockerfile
+      context: ./m1
+    restart: 'no'
+    env_file: ./.env
+    ports:
+      - "28280:28280"
+    stdin_open: true
+    tty: true
+    networks:
+      - backend_network
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - SPRING_PROFILES_ACTIVE=default
+     # - "JDK_JAVA_OPTIONS=--add-opens java.base/java.lang=ALL-UNNAMED"
+      - "JDK_JAVA_OPTIONS=--enable-preview"
+      - spring.datasource.url=jdbc:postgresql://postgres_db:5432/$POSTGRESDB_DATABASE
+      - spring.datasource.username=$POSTGRESDB_USER
+      - spring.datasource.password=$POSTGRESDB_ROOT_PASSWORD
+    volumes:
+    - /backend:/usr/apps/app3/backend/m1
+
+
+    
+  m2:
+    depends_on:
+      - postgres_db
+      - rabbitmq
+    container_name: 'SpringBackendAPP3-M2'
+    image: 'app3_m2_backend:latest'
+    build:
+      dockerfile: Dockerfile
+      context: ./m2
+    restart: 'no'
+    env_file: ./.env
+    ports:
+      - "28281:28281"
+    stdin_open: true
+    tty: true
+    networks:
+      - backend_network
+    environment:
+      - RABBIT_HOST=rabbitmq
+      - SPRING_PROFILES_ACTIVE=default
+     # - "JDK_JAVA_OPTIONS=--add-opens java.base/java.lang=ALL-UNNAMED"
+      - "JDK_JAVA_OPTIONS=--enable-preview"
+      - spring.datasource.url=jdbc:postgresql://postgres_db:5432/$POSTGRESDB_DATABASE
+      - spring.datasource.username=$POSTGRESDB_USER
+      - spring.datasource.password=$POSTGRESDB_ROOT_PASSWORD
+    volumes:
+    - /backend:/usr/apps/app3/backend/m2
+
+
+volumes:
+  postgres_db:
+networks: 
+  backend_network:
+    driver: bridge
