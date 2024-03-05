@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "cf389715-7af1-447e-b085-854c73fa64ac",
+		"name": "app3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10525809"
+	},
+	"item": [
+		{
+			"name": "m1",
+			"item": [
+				{
+					"name": "http://localhost:28280/courier/findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28280/courier/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name1\",\r\n    \"surName\": \"surName1\",\r\n    \"tc\": 12345678901,\r\n    \"work\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:28280/courier/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28280/courier/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/end",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "2",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:28280/courier/end",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"end"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"packageIds\": [\r\n        2,\r\n        3,\r\n        4,\r\n        5\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:28280/courier/start",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/currentLocation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courierId\":2,\r\n    \"location\": {\r\n        \"longitude\":22,\r\n        \"latitude\":21\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:28280/courier/currentLocation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"currentLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/currentLocation?id=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28280/courier/currentLocation?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"currentLocation"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28280/courier/currentLocation?id=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28280/courier/currentLocation?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28280",
+							"path": [
+								"courier",
+								"currentLocation"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "m2",
+			"item": [
+				{
+					"name": "http://localhost:28281/user/findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28281/user/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28281",
+							"path": [
+								"user",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28281/user/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name4\",\r\n    \"surName\": \"surName4\",\r\n    \"tc\": 12345678904\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:28281/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28281",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28281/user/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28281/user/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28281",
+							"path": [
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28281/package/findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:28281/package/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28281",
+							"path": [
+								"package",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:28281/package/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitude\": 42.123456789,\r\n    \"longitude\": 24.12345678,\r\n    \"address\": \"address2\",\r\n    \"userId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:28281/package/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "28281",
+							"path": [
+								"package",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
