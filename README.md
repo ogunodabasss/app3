@@ -46,7 +46,7 @@ docker-compose up --build -d
 
 ----------------
 
-4) dockerfile build
+4) dockerfile build (Optional)
 ---------------------
 root path......... 
 
